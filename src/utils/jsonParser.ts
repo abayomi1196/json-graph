@@ -35,19 +35,21 @@ const calculateSize = (text: string | [string, string][], isParent = false) => {
   };
 };
 
+const filterChild = ([_, v]: [_: any, v: any]) => {
+  const isNull = v === null;
+  const isArray = Array.isArray(v) && v.length;
+  const isObject = v instanceof Object;
+
+  return !isNull && (isArray || isObject);
+};
+
 const generateChildren = (object: Object, nextId: () => string) => {
   if (!(object instanceof Object)) {
     object = [object];
   }
 
   return Object.entries(object)
-    .filter(([k, v]) => {
-      if (Array.isArray(v) || v instanceof Object) {
-        return false;
-      }
-
-      return true;
-    })
+    .filter(filterChild)
     .flatMap(([key, v]) => {
       const { width, height } = calculateSize(key, true);
       const children = extract(v, nextId);

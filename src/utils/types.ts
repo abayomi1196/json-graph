@@ -1,7 +1,7 @@
 export interface NodeType<T = any> {
   id: string;
   disabled?: boolean;
-  text?: string;
+  text?: any;
   height?: number;
   width?: number;
   parent?: string;
@@ -12,7 +12,7 @@ export interface NodeType<T = any> {
 export interface EdgeType<T = any> {
   id: string;
   disabled?: boolean;
-  text?: string;
+  text?: any;
   from?: string;
   to?: string;
   data?: T;
