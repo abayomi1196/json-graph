@@ -1,12 +1,15 @@
-import { Editor } from "components";
+import { Editor, Navbar } from "components";
 import Graph from "components/Graph";
 
 function App() {
   return (
-    <div className='App'>
-      <Editor />
-      {/* <Graph /> */}
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Editor />
+        {/* <Graph /> */}
+      </main>
+    </>
   );
 }
 

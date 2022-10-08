@@ -23,7 +23,7 @@ function CustomEditor() {
         height='100vh'
         defaultLanguage='json'
         value={defaultJSON}
-        theme='vs-dark'
+        theme='vs-dark' // default | vs-dark
         options={editorOptions}
       />
     </Wrapper>
