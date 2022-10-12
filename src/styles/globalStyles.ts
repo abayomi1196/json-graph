@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   /*
@@ -38,6 +38,16 @@ const GlobalStyles = createGlobalStyle`
 
   #root {
     isolation: isolate;
+  }
+`;
+
+export const MainWrapper = styled.main`
+  display: flex;
+
+  & {
+    > div:first-of-type {
+      min-width: 450px;
+    }
   }
 `;
 

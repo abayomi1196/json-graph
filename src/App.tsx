@@ -1,14 +1,15 @@
 import { Editor, Navbar } from "components";
+import { MainWrapper } from "styles/globalStyles";
 import Graph from "components/Graph";
 
 function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <MainWrapper>
         <Editor />
-        {/* <Graph /> */}
-      </main>
+        <Graph />
+      </MainWrapper>
     </>
   );
 }

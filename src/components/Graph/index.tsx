@@ -11,7 +11,7 @@ import CustomNode from "components/CustomNode";
 function Graph() {
   const { nodes, edges } = parser(defaultJSON);
 
-  const [minScale, setMinScale] = useState(0.4);
+  const [minScale, setMinScale] = useState(0.6);
   const [size, setSize] = useState({
     width: 1,
     height: 1
@@ -46,9 +46,8 @@ function Graph() {
       <TransformWrapper
         maxScale={2}
         minScale={1}
-        onInit={() => console.log("init")}
-        initialScale={1}
-        wheel={{ step: 0.08 }}
+        initialScale={0.8}
+        wheel={{ step: 0.5 }}
         zoomAnimation={{ animationType: "linear" }}
         doubleClick={{ disabled: true }}
         onPanning={(ref) =>
@@ -62,7 +61,7 @@ function Graph() {
           wrapperStyle={{
             width: "100%",
             height: "100%",
-            overflow: "hidden",
+            overflow: "scroll",
             display: "block"
           }}
         >

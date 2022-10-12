@@ -2,15 +2,15 @@ import { LinkItUrl } from "react-linkify-it";
 import styled from "styled-components";
 
 function getTypeColor(value: string) {
-  if (!Number.isNaN(+value)) return "#fd0079";
-  if (value === "true") return "#ededed";
-  if (value === "false") return "#08b";
+  if (!Number.isNaN(+value)) return "#B5CEA8";
+  if (value === "true") return "#CE9178";
+  if (value === "false") return "#B5CEA8";
 }
 
 function getKeyColor(parent: boolean, objectKey: boolean) {
-  if (parent) return "#ffeeff";
-  if (objectKey) return "yellow";
-  return "#ededed";
+  if (parent) return "#B5CEA8";
+  if (objectKey) return "#CE9178";
+  return "#9CDCFE";
 }
 
 export const CustomLinkItUrl = styled(LinkItUrl)`
@@ -70,7 +70,7 @@ export const ForeignObject = styled.foreignObject<{
   }
 
   .highlight {
-    border: 2px dashed #ff2970;
+    /* border: 2px dashed #ff2970; */
     background: rgba(255, 214, 0, 0.3);
   }
 
