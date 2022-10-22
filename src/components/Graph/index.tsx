@@ -1,15 +1,16 @@
-import { useCallback, useState } from "react";
-
+import { useCallback, useState, useContext } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import { Canvas, Edge, ElkRoot } from "reaflow";
 
 import { parser } from "utils/jsonParser";
-import { defaultJSON } from "constants/data";
 import { GraphWrapper } from "./styles";
 import CustomNode from "components/CustomNode";
+import { JSONContext } from "context/JSONContext";
 
 function Graph() {
-  const { nodes, edges } = parser(defaultJSON);
+  const { json } = useContext(JSONContext);
+
+  const { nodes, edges } = parser(json);
 
   const [minScale, setMinScale] = useState(0.6);
   const [size, setSize] = useState({
@@ -44,9 +45,9 @@ function Graph() {
   return (
     <GraphWrapper>
       <TransformWrapper
-        maxScale={2}
-        minScale={1}
-        initialScale={0.8}
+        maxScale={2.5}
+        minScale={minScale}
+        initialScale={1}
         wheel={{ step: 0.5 }}
         zoomAnimation={{ animationType: "linear" }}
         doubleClick={{ disabled: true }}

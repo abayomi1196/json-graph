@@ -1,5 +1,7 @@
 import Editor, { loader } from "@monaco-editor/react";
-import { defaultJSON } from "constants/data";
+import { useContext } from "react";
+
+import { JSONContext } from "context/JSONContext";
 
 import { Wrapper } from "./styles";
 
@@ -17,14 +19,17 @@ const editorOptions = {
 };
 
 function CustomEditor() {
+  const { json, updateJSON } = useContext(JSONContext);
+
   return (
     <Wrapper>
       <Editor
         height='100vh'
         defaultLanguage='json'
-        value={defaultJSON}
+        value={json}
         theme='default' // default | vs-dark
         options={editorOptions}
+        onChange={(val) => updateJSON(val!)}
       />
     </Wrapper>
   );
